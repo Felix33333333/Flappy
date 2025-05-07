@@ -16,7 +16,7 @@ public class KycklingRörelse : MonoBehaviour
         transform.position += new Vector3(-1 * Time.deltaTime, 0, 0);
         if (transform.position.x < -12)
         {
-            transform.position = new Vector3(12, Random.Range(-3,3), 0);
+            transform.position = new Vector3(12, Random.Range(-1,3), 0);
         }
     }
 }
