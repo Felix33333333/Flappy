@@ -20,7 +20,7 @@ public class Spelare : MonoBehaviour
             rigidbody2D.AddForce(new Vector2(0, 6), ForceMode2D.Impulse);
         }
 
-        transform.position = new Vector3(transform.position.x, Mathf.Clamp(transform.position.y, -5, 5), transform.position.z);
+        transform.position = new Vector3(transform.position.x, Mathf.Clamp(transform.position.y, -965, 5), transform.position.z);
         //hoppa
             //åker upp
         //gravitation
