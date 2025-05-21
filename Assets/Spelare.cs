@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Spelare : MonoBehaviour
 {
     Rigidbody2D rigidbody2D;
+    [SerializeField] GameObject loseScreen;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,12 +19,29 @@ public class Spelare : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             print("Hopp");
-            rigidbody2D.AddForce(new Vector2(0, 6), ForceMode2D.Impulse);
+            rigidbody2D.AddForce(new Vector2(0, 8), ForceMode2D.Impulse);
         }
 
         transform.position = new Vector3(transform.position.x, Mathf.Clamp(transform.position.y, -965, 5), transform.position.z);
         //hoppa
             //åker upp
         //gravitation
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        Lose();
+    }
+
+    void Lose()
+    {
+        loseScreen.SetActive(true);
+        Time.timeScale = 0;
+    }
+
+    public void Restart()
+    {
+        Time.timeScale = 1;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);//ladda om samma scen igen
     }
 }

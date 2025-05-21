@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class KycklingRörelse : MonoBehaviour
 {
+    [SerializeField] float speed = 2;
     // Start is called before the first frame update
     void Start()
     {
@@ -13,7 +14,7 @@ public class KycklingRörelse : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position += new Vector3(-1 * Time.deltaTime, 0, 0);
+        transform.position += new Vector3(-1 * Time.deltaTime * speed, 0, 0);
         if (transform.position.x < -12)
         {
             transform.position = new Vector3(12, Random.Range(-1,3), 0);
