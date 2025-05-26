@@ -16,7 +16,7 @@ public class Bakgrundkod : MonoBehaviour
     void Update()
     {
         transform.position += new Vector3(-1 * Time.deltaTime * speed, 0, 0);
-        if (transform.position.x < -12)
+        if (transform.position.x < -15)
         {
             transform.position = new Vector3(12, 0, 0);
         }

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -7,6 +8,9 @@ public class Spelare : MonoBehaviour
 {
     Rigidbody2D rigidbody2D;
     [SerializeField] GameObject loseScreen;
+    [SerializeField] TMP_Text text;
+    float points;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -21,7 +25,8 @@ public class Spelare : MonoBehaviour
             print("Hopp");
             rigidbody2D.AddForce(new Vector2(0, 8), ForceMode2D.Impulse);
         }
-
+        points += 1 * Time.deltaTime;
+        text.text = points.ToString("F0");
         transform.position = new Vector3(transform.position.x, Mathf.Clamp(transform.position.y, -965, 5), transform.position.z);
         //hoppa
             //åker upp
